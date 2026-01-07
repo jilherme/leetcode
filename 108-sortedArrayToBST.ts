@@ -1,0 +1,32 @@
+// Definition for a binary tree node.
+class TreeNode {
+    val: number
+    left: TreeNode | null
+    right: TreeNode | null
+    constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+        this.val = (val===undefined ? 0 : val)
+        this.left = (left===undefined ? null : left)
+        this.right = (right===undefined ? null : right)
+    }
+}
+
+
+function sortedArrayToBST(nums: number[]): TreeNode | null {
+    function buildTree(start: number, end: number): TreeNode | null {
+        if (start > end) {
+            return null;
+        }
+
+        const mid = Math.floor((start + end) / 2);
+        const node = new TreeNode(nums[mid]);
+
+        node.left = buildTree(start, mid - 1);
+        node.right = buildTree(mid + 1, end);
+
+        return node;
+    }
+
+    return buildTree(0, nums.length - 1);
+}
+
+console.log(sortedArrayToBST([-10,-3,0,5,9]))

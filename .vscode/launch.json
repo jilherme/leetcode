@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug with Bun",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "bun",
+            "runtimeArgs": [
+                "run",
+                "${file}"
+            ],
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ],
+            "stopOnEntry": true
+        }
+    ]
+}
